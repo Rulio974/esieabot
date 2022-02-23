@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
                 color: const Color(0Xffdcebfa),
               ),
               width: _widht / 1.5,
-              height: 100,
+              height: _height / 10,
               child: TextButton(
                 onPressed: () {
                   Navigator.push(
@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
                 color: const Color(0Xffdcebfa),
               ),
               width: _widht / 1.5,
-              height: 100,
+              height: _height / 10,
               child: TextButton(
                 onPressed: () {},
                 child: const Text('Paramètres',
@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: const Color(0Xffdcebfa),
               ),
-              height: 100,
+              height: _height / 10,
               child: TextButton(
                 onPressed: () {},
                 child: const Text(
