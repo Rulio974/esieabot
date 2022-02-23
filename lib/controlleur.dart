@@ -18,22 +18,15 @@ class ControlleurState extends State<Controlleur> {
 
   // ignore: unused_element
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: const Color(0xff2daae1),
-          shadowColor: Colors.white,
-        ),
         // ignore: avoid_unnecessary_containers
-        body: SingleChildScrollView(
-          child: Column(children: [
-            const SizedBox(
-              width: 100,
-            ),
+        body: Row(children: [
+          const SizedBox(
+            width: 50,
+          ),
+          Column(children: [
+            const Expanded(child: SizedBox()),
             Container(
               color: Colors.white,
               child: JoystickView(
@@ -44,7 +37,9 @@ class ControlleurState extends State<Controlleur> {
                 showArrows: false,
               ),
             ),
-            Expanded(child: Container()),
+            const SizedBox(
+              height: 200,
+            ),
             Container(
               color: Colors.white,
               child: JoystickView(
@@ -55,10 +50,16 @@ class ControlleurState extends State<Controlleur> {
                 showArrows: false,
               ),
             ),
-            const SizedBox(
-              width: 100,
-            ),
+            const Expanded(child: SizedBox())
           ]),
-        ));
+          const Expanded(child: SizedBox()),
+          const RotatedBox(
+            quarterTurns: 1,
+            child: Text("appareil connecté : None"),
+          ),
+          const SizedBox(
+            width: 50,
+          ),
+        ]));
   }
 }
