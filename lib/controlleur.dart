@@ -1,6 +1,7 @@
 //@dart=2.9
 
-import 'package:flutter/material.dart';
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -19,33 +20,45 @@ class ControlleurState extends State<Controlleur> {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
     ]);
     return Scaffold(
-      appBar: AppBar(),
-      // ignore: avoid_unnecessary_containers
-      body: Row(children: [
-        const SizedBox(
-          width: 100,
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: const Color(0xff2daae1),
+          shadowColor: Colors.white,
         ),
-        Container(
-          color: Colors.white,
-          child: JoystickView(
-            size: 150,
-            showArrows: false,
-          ),
-        ),
-        Expanded(child: Container()),
-        Container(
-          color: Colors.white,
-          child: JoystickView(
-            size: 150,
-            showArrows: false,
-          ),
-        ),
-        const SizedBox(
-          width: 100,
-        ),
-      ]),
-    );
+        // ignore: avoid_unnecessary_containers
+        body: SingleChildScrollView(
+          child: Column(children: [
+            const SizedBox(
+              width: 100,
+            ),
+            Container(
+              color: Colors.white,
+              child: JoystickView(
+                onDirectionChanged: (x, y) {
+                  print("$x,$y");
+                },
+                size: 150,
+                showArrows: false,
+              ),
+            ),
+            Expanded(child: Container()),
+            Container(
+              color: Colors.white,
+              child: JoystickView(
+                onDirectionChanged: (x, y) {
+                  print("$x $y");
+                },
+                size: 150,
+                showArrows: false,
+              ),
+            ),
+            const SizedBox(
+              width: 100,
+            ),
+          ]),
+        ));
   }
 }
